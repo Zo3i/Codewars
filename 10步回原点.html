@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Take a Ten Minute Walk</title>
+    <script type="text/javascript">
+    function isValidWalk(walk)
+    {
+      if(walk.length==0 || walk.length<10 || walk.length>10)//走的步数不符合规定(10)
+      return false;
+      var row = 0;//横向
+      var cos = 0;//纵向
+      for(var i=0;i<=walk.length-1;i++)//遍历每一步,东南西北分别改成上下左右+-
+      {
+        if(walk[i] == "n") cos++;
+        if(walk[i] == "s") cos--;
+        if(walk[i] == "e") row++;
+        if(walk[i] == "w") row--;
+      }
+      if(row==0&&cos==0)//如果左等于右.上等下.则回到原点.
+        return true;
+      else
+       return false;
+    }
+  //  console.log(isValidWalk([]));
+    </script>
+    <script type="text/javascript">
+    function isValidWalk(walk)
+    {
+      //大佬的最佳实践
+      var dx = 0
+      var dy = 0
+      var dt = walk.length
+
+      for (var i = 0; i < walk.length; i++) {
+        switch (walk[i]) {
+          case 'n': dy--; break
+          case 's': dy++; break
+          case 'w': dx--; break
+          case 'e': dx++; break
+        }
+      }
+
+      return dt === 10 && dx === 0 && dy === 0
+    }
+    </script>
+    <script type="text/javascript">
+    //大佬的最佳实践
+    function isValidWalk(walk)
+    {
+      function count(val) {
+        return walk.filter(function(a){return a==val;}).length;
+      }
+      return walk.length==10 && count('n')==count('s') && count('w')==count('e');
+    }
+      console.log(isValidWalk(['n','n','n','s','n','s','n','s','n','s']));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
