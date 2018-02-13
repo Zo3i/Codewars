@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Duplicate Encoder</title>
+    <script type="text/javascript">
+    function duplicateEncode(word)
+    {
+      var new_word = word.toLowerCase();
+      console.log(new_word);
+      var result = new Array(); //根据统计次数写结果.
+      var cnt = new Array();  //每一个元素计数
+      for(var i = 0;i<=new_word.length-1;i++)//出现次数
+      {
+         cnt[i] = new_word.split(new_word[i]).length-1;  // console.log(cnt[i]);
+      }
+      for(var i = 0;i<=new_word.length-1;i++)
+      {
+         cnt[i]==1? result[i]="(":result[i]=")";
+      }//console.log(result);
+      var w = result.join("");//数组改字符串,通过空字符连接.
+      return w;
+    }
+    console.log(duplicateEncode("Success"));
+    </script>
+    <script type="text/javascript">
+    //大佬的最佳实践
+    function duplicateEncode(word)
+    {
+      return word
+        .toLowerCase()
+        .split('')
+        .map( function (a, i, w) {
+          return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+        })
+        .join('');
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

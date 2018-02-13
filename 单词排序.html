@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sort words!</title>
+    <script type="text/javascript">
+      //对输入的句子按包含的内容进行排序.
+      //断句
+    function order(words){
+      var result = new Array();
+      var newwords = new Array();
+      //判断是否是空字符创.
+      if (words == "")
+      newwords[0] = "";
+      else{
+      var len =words.split(" ").length-1;
+      //alert(len);
+
+      var d = 0;//新数组计数;
+      for(var i=0;i<=len;i++)
+      {
+        result[i] = words.split(" ")[i];
+      }
+    //  console.log(result);
+      for(var m=1;m<=9;m++)
+      {
+        for(var j=0;j<=len;j++)
+        {
+          //console.log(m);
+          if(result[j].indexOf(m)!=-1)
+          {
+            newwords[d] = result[j];
+            //console.log(newwords[d]);
+            d++;
+          }
+        }
+      }
+    }
+    //  console.log(newwords);
+    //console.log(newwords.length);
+      var x = "";
+      for(var k = 0 ;k<=newwords.length-1;k++)
+      {
+        x+=newwords[k];
+        if(k<=newwords.length-2)
+        x+=" ";
+      }
+      console.log(x);
+    return x;
+}
+order("4of Fo1r pe6ople g3ood th5e the2");
+order("is2 Thi1s T4est 3a");
+order("");
+    </script>
+
+
+
+    <script type="text/javascript">
+      //大佬的最佳实践;
+      function order(words)
+      {
+
+        return words.split(' ').sort(
+          function(a, b)
+        {
+            return a.match(/\d/) - b.match(/\d/);
+         }                            ).join(' ');
+      }
+      console.log("********大佬的最佳实践********");
+      console.log(order("4of Fo1r pe6ople g3ood th5e the2"));
+      console.log(order("is2 Thi1s T4est 3a"));
+      console.log(order(""));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

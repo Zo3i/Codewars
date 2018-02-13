@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A Rule of Divisibility by 13</title>
+    <script type="text/javascript">
+    function thirt(n)
+    {
+      var result = 0;
+      var new_n = n.toString().split("").reverse();//数字转型后分割成数组在倒置.
+      console.log(n);
+      console.log(new_n);
+      var rule = [1,10,9,12,3,4];
+      var j = 0;//规则计数器
+      for(var i=0;i<=new_n.length-1;i++)
+      {
+        result += new_n[i]*rule[j];j++;
+        if(j>5 || j==new_n.length&&new_n.length<5)j = 0;
+      }
+      return result<100?result:thirt(result);
+    }
+    console.log(thirt(987654321));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function thirt(n)
+      {
+        const nums = [1,10,9,12,3,4]
+        var sum = (''+n).split('').reverse().reduce((sum,v,i) => sum + v * nums[i%nums.length], 0)
+        return sum === n ? n : thirt(sum)
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vasya - Clerk</title>
+    <script type="text/javascript">
+    function tickets(peopleInLine)
+    {
+      c_25 = 0;//25计数;
+      c_50 = 0;//50计数
+      c_100 =0;//100计数
+      for(var i = 0 ;i<=peopleInLine.length-1;i++)
+      {
+        if(peopleInLine[i]/25==1)//如果是25$就直接+1;
+        {
+          c_25 +=1;
+        }
+        if(peopleInLine[i]/25==2)//如果是50$的情况下:25$--;50$++h
+        {
+          if(c_25>=1)
+          {
+            c_25--;c_50++;
+          }
+          else return "NO";
+        }
+        if(peopleInLine[i]/25==4)
+        {
+          if(c_25>=3 ||c_25>=1&&c_50>=1)
+          {
+            if(c_50>=1)
+           {
+             c_25--;
+             c_50--;
+             c_100++;
+           }
+           else
+            {c_25=c_25-3;c_100++;}
+          }
+          else return "NO";
+        }
+        console.log("25="+c_25+"  50="+c_50+"  100="+c_100);
+        console.log(" ");
+      }
+      return "YES";
+    }
+    console.log(tickets([25,50,25,100,25,25,50,100,25,50,25,100,25,25,50,100,25,50,25,100]))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

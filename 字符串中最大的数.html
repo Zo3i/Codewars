@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Numbers in strings</title>
+    <script type="text/javascript">
+    function solve(s)
+    {
+      var result = new Array();
+      var j = 0;//计数
+      for(var i=0;i<=s.length-1;i++)
+      {
+        result[i]="";
+      }
+
+      for(var i=0;i<=s.length-1;i++)
+      {
+      //  console.log(s.split("")[i])
+        if(s.split("")[i].match(/\d/))
+        {
+          console.log(s.split("")[i].match(/\d/))
+          result[j] += s.split("")[i].match(/\d/)+"";
+        }
+        else {
+          j++;
+        }
+      }
+      var big = 0;
+      for(var i=0;i<=result.length-1;i++)
+      {
+        if(parseInt(result[i])>parseInt(big))
+        {
+          big = result[i];
+        }
+      }
+      console.log(result)
+      return parseInt(big);
+    }
+    console.log(solve('vih61w8oohj5'))
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      solve=s=>Math.max(...s.match(/\d+|$/g));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

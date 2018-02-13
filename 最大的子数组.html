@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Maximum subarray sum</title>
+    <script type="text/javascript">
+    var maxSequence = function(arr)
+    {
+      //  console.log(arr.length);
+      if(arr.length!=0)
+      {
+        function sortNumber(a, b)
+        {
+          return b-a;
+        }
+        arr = arr.sort(sortNumber);
+        var new_arr = new Array();
+        new_arr= Array.from(new Set(arr));
+        //全是负数的
+        //console.log(new_arr)
+        if(new_arr[0]<0)
+        return 0;
+        var sum = 0;
+      // console.log(new_arr)
+      var i = 0;
+          do
+          {
+            console.log(i+":"+new_arr[i]);
+            sum +=new_arr[i];
+            i++;
+          }
+          while (new_arr[i]>0&&i<=new_arr.length-1)
+          {
+            console.log(i+":"+new_arr[i]);
+            sum +=new_arr[i];
+            i++;
+          }
+        return sum;
+      }
+      else {
+        return 0;
+      }
+    }
+    console.log(maxSequence([ 4, 2, 1, -1, -2, -3, -5 ]));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Longest Palindrome</title>
+    <script type="text/javascript">
+    longestPalindrome=function(s)
+    {
+      console.log(s);
+      var result = 1;
+      for(var i=0;i<=s.length-1;i++)
+      {
+        var temp = 0;
+
+        if(s.indexOf(s[i],i+1)!=-1)
+        {
+          var loc = s.indexOf(s[i],i+1);
+          console.log(loc)
+          for(var j=i;j<=loc;j++)
+          {
+            console.log(s[i]);
+            console.log(s[loc])
+            if(s[i]==s[loc])
+            {
+              temp++;
+              loc--;
+              console.log(temp)
+            }
+
+          }
+          //console.log(temp);
+        //  console.log(result);
+          if(temp>=result)
+          result += temp;
+        }
+
+      }
+      console.log(result);
+
+    }
+    console.log(longestPalindrome("baabcd"));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

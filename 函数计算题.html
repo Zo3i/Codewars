@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculating with Functions</title>
+    <script type="text/javascript">
+
+    function plus()      {this.new_num =  "+" + this.num;return this.new_num};
+    function minus()     {this.new_num =  "-" + this.num;return this.new_num}
+    function times()     {this.new_num =  "*" + this.num;return this.new_num}
+    function dividedBy() {this.new_num =  "/" + this.num;return this.new_num}
+    //**************************
+    function zero()  {this.num = 0;return eval(this.num+this.new_num)};
+    function one()   {this.num = 1;return eval(this.num+this.new_num)};
+    function two()   {this.num = 2;return eval(this.num+this.new_num)}
+    function three() {this.num = 3;return eval(this.num+this.new_num)}
+    function four()  {this.num = 4;return eval(this.num+this.new_num)}
+    function five()  {this.num = 5;return eval(this.num+this.new_num)}
+    function six()   {this.num = 6;return eval(this.num+this.new_num)}
+    function seven() {this.num = 7;return eval(this.num+this.new_num)}
+    function eight() {this.num = 8;return eval(this.num+this.new_num)}
+    function nine()  {this.num = 9;return eval(this.num+this.new_num)}
+    //console.log(plus(one()));
+    console.log(four(plus(nine())));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      var n = function(digit) 
+      {
+        return function(op)
+        {
+          return op ? op(digit) : digit;
+        }
+      };
+      var zero = n(0);
+      var one = n(1);
+      var two = n(2);
+      var three = n(3);
+      var four = n(4);
+      var five = n(5);
+      var six = n(6);
+      var seven = n(7);
+      var eight = n(8);
+      var nine = n(9);
+
+      function plus(r) { return function(l) { return l + r; }; }
+      function minus(r) { return function(l) { return l - r; }; }
+      function times(r) { return function(l) { return l * r; }; }
+      function dividedBy(r) { return function(l) { return l / r; };
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

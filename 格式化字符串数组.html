@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Format a string</title>
+    <script type="text/javascript">
+      function list(names)
+      {
+        if(names.length==0)//如果对象没有内容,返回空
+          return "";
+        else {
+          if(names.length==1)//数组只有一个名字返回这个名字
+            return names[0].name;
+        var new_names = new Array();
+        //把对象传值到数组
+        for(var j = 0;j<=names.length-1;j++)
+        {
+          new_names[j] = names[j].name;
+        }
+        var new_name = "";
+        for(var i = 0;i<=new_names.length-2;i++)
+        {
+          new_name += new_names[i];
+          if(i<=new_names.length-3)
+          new_name += ", ";
+        }
+        new_name = new_name + " & " + new_names[new_names.length-1] ;
+        return new_name;
+}
+    }
+      console.log(list([{name: 'Bart'},{name: 'Lisa'},{name: 'Maggie'},{name: 'Homer'},{name: 'Marge'}]));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function list(names)
+      {
+        var xs = names.map(p => p.name)
+        var x = xs.pop()
+        return xs.length ? xs.join(", ") + " & " + x : x || ""
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

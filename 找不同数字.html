@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Array.diff</title>
+    <script type="text/javascript">
+    function array_diff(a, b)
+    {
+    //  console.log(b.join(""));
+      var num = new Array();
+      for(var i=0;i<=a.length-1;i++)
+      {
+        if(b.join("").indexOf(a[i])==-1)
+        num[i]=a[i];
+      }
+      return num.join("");
+    }
+    console.log(array_diff([1,2], [1]));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function array_diff(a, b)
+      {
+        return a.filter(function(x) { return b.indexOf(x) == -1; });
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

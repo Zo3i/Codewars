@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Title Case</title>
+    <script type="text/javascript">
+    function titleCase(title, minorWords)
+    {
+      var exp = new Array();
+      if(title.length==0)
+      return "";
+      var new_title = title.toString().toLowerCase();
+      if(minorWords!=undefined)
+      {
+        var new_word = minorWords.toString().toLowerCase();
+
+      }
+      else
+      {
+        console.log(new_title.split(" "))
+        if(new_title.length>=1)
+        for(var i = 0;i<=new_title.split(" ").length-1;i++)
+        {
+            exp[i] = new_title.split(" ")[i].replace(new_title.split(" ")[i].split("")[0],new_title.split(" ")[i].split("")[0].toUpperCase());
+
+        }
+        else return exp.join(" ");
+        console.log(exp.join(" "));
+        return exp.join(" ");
+      }
+      //console.log(new_title.split(" "));
+      for(var i = 0;i<=new_title.split(" ").length-1;i++)
+      {
+        if(new_word.split(" ").indexOf(new_title.split(" ")[i])===-1||i==0)
+        {
+          console.log(new_title.split(" ")[i].split("")[0]);
+          exp[i] = new_title.split(" ")[i].replace(new_title.split(" ")[i].split("")[0],new_title.split(" ")[i].split("")[0].toUpperCase());
+          console.log(exp[i]);
+        }
+        else
+        {
+            exp[i] =  new_title.split(" ")[i];
+          console.log(exp[i]);
+        }
+      }
+      console.log(exp.join(" "));
+      return exp.join(" ");
+    }
+    titleCase("","")
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function titleCase(title, minorWords)
+      {
+        var minorWords = typeof minorWords !== "undefined" ? minorWords.toLowerCase().split(' ') : [];
+        return title.toLowerCase().split(' ').map(function(v, i) {
+          if(v != "" && ( (minorWords.indexOf(v) === -1) || i == 0))
+          {
+            v = v.split('');
+            v[0] = v[0].toUpperCase();
+            v = v.join('');
+          }
+          return v;
+        }).join(' ');
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

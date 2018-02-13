@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Find the odd int</title>
+    <script type="text/javascript">
+    function findOdd(A)
+    {
+      var num = new Array();//记录数据;
+      var num_index_1 = new Array();//记录索引
+      var num_index = new Array();//对比记录索引
+      var num_opp = new Array();//是否为奇数.
+      for(var i = 0;i<=A.length-1;i++)
+      {
+        num[i]=A[i];
+        num_index1=i;
+        num_opp[i]=0
+        for(var j = 0;j<=A.length-1;j++)
+        {
+          num[j]=A[j];
+          num_index=j;
+          if(num[i]==num[j])//如果数值相同往下比较
+          {
+            if(num_index!=num_index1)//如果下标不同,说明不是同一个值,opp累加.
+            num_opp[i]++;
+          }
+        }
+        if(num_opp[i]%2==0)
+        return num[i];
+    //  console.log(num[i]+":"+num_opp[i]);
+    }
+  }
+    console.log(findOdd([1,1,2,-2,5,2,4,4,-1,-2,5]))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

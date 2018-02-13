@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bouncing Balls</title>
+    <script type="text/javascript">
+    function bouncingBall(h,  bounce,  window)
+    {
+      var times = 1;
+      var i = 1;
+      while (true) {
+        if(h>=window)
+        {
+          h=(Math.pow(bounce,i))*h;
+          //console.log(Math.pow(bounce,i)*30)
+          times +=2;
+          i++;
+        }
+        else console.log(times);
+      }
+
+
+
+
+
+    }
+    bouncingBall(3.0, 0.66, 1.5);
+
+
+console.log()
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

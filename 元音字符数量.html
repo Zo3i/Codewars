@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vowel Count</title>
+    <script type="text/javascript">
+    function getCount(str)
+    {
+      var vowelsCount = 0;
+      vowelsCount = str.split("a").length-1+
+                    str.split("e").length-1+
+                    str.split("i").length-1+
+                    str.split("o").length-1+
+                    str.split("u").length-1
+      return vowelsCount;
+    }
+    console.log(getCount("abracadabra"));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function getCount(str)
+       {
+          return (str.match(/[aeiou]/ig)||[]).length;
+        }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

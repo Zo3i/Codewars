@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IQ Test</title>
+    <script type="text/javascript">
+      function iqTest(numbers)
+      {
+        var arr = new Array();
+        arr = numbers.split(" ");
+        var jishu = arr.filter(function(item){ return item % 2 !=0 });
+        var oushu = arr.filter(function(item){ return item % 2 ==0 });
+        return jishu.length==1 ?arr.indexOf(jishu.join(""))+1:arr.indexOf(oushu.join(""))+1;
+      }
+      console.log(iqTest("1 1 2"));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

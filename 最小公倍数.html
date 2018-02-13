@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Common Denominators</title>
+    <script type="text/javascript">
+    var lst = [ [ 1, 1 ], [ 3, 1 ], [ 4, 1 ], [ 5, 1 ] ];
+      function convertFrac(lst)
+      {
+        var new_lst = new Array();
+      //  var old_lst = new Array();
+        var k = 0;//二维转1维,计数器
+        for(var j = 0;j<=lst.length-1;j++)
+        {
+          for(var i = 0;i<=lst[j].length-1;i++)
+          {
+            new_lst[k]=lst[j][i];
+            k++;
+          }
+        }
+        var old_lst = new_lst.slice();//保留原数组;
+        var a = new_lst.sort(function(a,b){return b-a})[0];//最大的两个数字.
+        var b = new_lst.sort(function(a,b){return b-a})[1];
+        //console.log(a);
+        //(6,12)(4,12)(3,12)
+        var b = a;
+        var max = new Array();
+        for(var k = 0;k<=lst.length-1;k++)
+        {
+          max[k] = lst[k][1];
+        }
+        //console.log(max.length);
+        for(var m = 1;m<=100000000;m++)
+        {
+            var s=0;
+            a=m*a;
+            console.log(a);
+            for(var s=0;s<=lst.length-1;)
+            {
+
+              if((a/max[s])==(parseInt(a/max[s])))
+              {
+                console.log(max[s]);console.log(a);
+                s++;
+              }
+              else break;
+              if(s==lst.length)
+              {
+                var c = a;
+                break;
+              }
+            }
+          if(c>0)
+          break;
+            a=b;
+        }
+    //if(parseInt(2775/15)==2775/15)alert("a")
+    //  console.log(c);
+    //得到D,也就是最小的共同分母.
+    console.log(old_lst);
+    if(a<10)
+    {
+      var result="";
+      for(var m=0;m<=old_lst.length-1;m++)
+      {
+        if(m%2==0)
+        old_lst[m]==a*b;
+        else
+        {
+          result+="("+a*b/old_lst[m]+","+a*b+")";
+        }
+      }
+    }
+      else
+      for(var n=0;n<=lst.length-1;n++)
+      {
+        lst[n][0]=c*lst[n][0]/lst[n][1];
+        lst[n][1]=c;
+      }
+    //组合各个数字
+    var result="";
+
+    for(var x=0;x<=lst.length-1;x++)
+    {
+        result+="("+lst[x][0]+","+lst[x][1]+")";
+    }
+    //console.log(result);
+    return result;
+        }
+    console.log(convertFrac(lst))
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      const gcd = (a, b) => b ? gcd(b, a % b) : a;
+const lcm = (a, b) => a * b / gcd(a, b);
+
+function convertFrac(arr) {
+  const cd = arr.reduce((a, [_, d]) => lcm(d, a), 1);
+  return arr.map(([n, d]) => `(${n * cd/d},${cd})`).join('');
+}
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

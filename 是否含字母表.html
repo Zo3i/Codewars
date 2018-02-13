@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Detect Pangram</title>
+    <script type="text/javascript">
+    var string = "This is not a pangram."
+    function isPangram(string)
+    {
+      var arr = new Array();
+      //全部小写,分割为数组,排序,筛选出a-z
+      arr = string.toLowerCase().split("").sort().filter(function(item){ return item.match(/^[a-z]/) });
+      console.log(arr);
+      //去重
+      function unique (arr) {
+        return Array.from(new Set(arr))
+      }
+      arr = unique (arr);
+      if(arr.length==26)
+      return true;
+      else return false;
+    }
+    console.log(isPangram(string))
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function isPangram(string)
+      {
+        string = string.toLowerCase();
+        return "abcdefghijklmnopqrstuvwxyz".split("").every(function(x){
+          return string.indexOf(x) !== -1;
+        });
+      }
+    </script>
+    <script type="text/javascript">
+    function isPangram(string)
+    {
+      //大佬的最佳实践
+      return (string.match(/([a-z])(?!.*\1)/ig) || []).length === 26;
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

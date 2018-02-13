@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IPv4 to int32</title>
+    <script type="text/javascript">
+    function ipToInt32(ip)
+    {
+      var arr = new Array();
+      for(var i=0;i<=ip.split(".").length-1;i++)
+      {
+        arr[i] = parseInt(ip.split(".")[i]).toString(2);
+        var temp = parseInt(ip.split(".")[i]).toString(2).split("");
+        while(temp.length!=8)
+        {
+            temp.unshift(0);
+        }
+        arr[i] = temp;
+      }
+      return parseInt((arr[0].join("")+arr[1].join("")+arr[2].join("")+arr[3].join("")),2)
+    }
+    console.log(ipToInt32("128.32.10.1"));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function ipToInt32(ip)
+      {
+         return ip.split(".").reduce(function(int,v){ return int*256 + +v } )
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

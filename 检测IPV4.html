@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Regexp Basics - is it IPv4 address?</title>
+    <script type="text/javascript">
+    String.prototype.ipv4Address=function()
+    {
+      console.log(this.split("."));
+      if(this.length<7||this.length>15)
+        return false;
+      if(this.match(/[^0123456789.]/g)!=null)
+        return false;
+      if(this.split(".").length!=4)
+        return false;
+      for(var i=0;i<=this.split(".").length-1;i++)
+      {
+        //console.log(this.split(".")[i].split("")[0]);
+        if(this.split(".")[i]>255||this.split(".")[i]<0||this.split(".")[i].length==0)
+          return false;
+        if(this.split(".")[i].length>1&&this.split(".")[i].split("")[0]==0)
+          return false;
+      }
+      return true;
+    }
+    console.log("127.255.0.1".ipv4Address());
+    </script>
+    <script type="text/javascript">
+      //大佬的最短实践
+      String.prototype.ipv4Address = function()
+      {
+        return /^(([1-9]?\d|1\d\d|2[0-4]\d|25[0-5])(\.(?!$)|$)){4}$/.test(this);
+      };
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      String.prototype.ipv4Address = function()
+      {
+        let ss = this.split(".");
+        return ss.length == 4 && ss.every((s) => {
+            let n = +s;
+            return s == '' + n && n >= 0 && n < 256;
+          });
+      };
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

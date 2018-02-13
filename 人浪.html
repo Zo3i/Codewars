@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mexican Wave</title>
+    <script type="text/javascript">
+    function wave(word)
+    {
+      var new_word = new Array();
+      for(var i=0;i<=word.length-1;i++)
+      {
+        new_word[i]="";
+        for(var j=0;j<=word.length-1;j++)
+        {
+          //console.log(word[j]);
+          if(word[j].match(/^\s/))
+          new_word[i]+=" ";
+          if(i==j)
+            new_word[i]+=word[j].replace(/^[a-z]/,word[j].toUpperCase());
+          else
+            new_word[i]+=word[j];
+          }
+
+      }
+      return new_word;
+    }
+    console.log(wave("g eblmfojnv "));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

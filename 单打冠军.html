@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Two fighters, one winner.</title>
+    <script type="text/javascript">
+    function Fighter(name, health, damagePerAttack)
+    {
+      this.name = name;
+      this.health = health;
+      this.damagePerAttack = damagePerAttack;
+      this.toString = function() { return this.name; }
+    }
+
+    function declareWinner(fighter1, fighter2, firstAttacker)
+     {
+        var new_firstAttacker = firstAttacker;
+      //  var d = 0;//胜利计数器;
+        while(fighter1.health>0 && fighter2.health>0)
+        {
+          if(fighter1.name == new_firstAttacker)
+          {
+            fighter2.health = fighter2.health - fighter1.damagePerAttack;//F1攻击F2
+            console.log(fighter1.name +" attacks " + fighter2.name + ", " + fighter2.name + " now has " + fighter2.health);
+            new_firstAttacker = fighter2.name;
+
+          }
+          else {
+            fighter1.health = fighter1.health - fighter2.damagePerAttack;//F2攻击F1
+            console.log(fighter2.name +" attacks " + fighter1.name + ", " + fighter1.name + " now has " + fighter1.health);
+            new_firstAttacker = fighter1.name;
+          }
+          if(fighter1.health<=0)
+          return fighter2.name;
+          if(fighter2.health<=0)
+          return fighter1.name;
+
+        }
+      }
+      console.log(declareWinner(new Fighter("Jerry", 30, 3), new Fighter("Harald", 20, 5), "Jerry"));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function declareWinner(fighter1, fighter2, firstAttacker)
+       {
+          var fac1 = Math.ceil( fighter1.health / fighter2.damagePerAttack );
+          var fac2 = Math.ceil( fighter2.health / fighter1.damagePerAttack );
+          if(fac1 < fac2) {
+            return fighter2.name;
+          } else if(fac2 < fac1) {
+            return fighter1.name;
+          } else {
+            return firstAttacker;
+        }
+}
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

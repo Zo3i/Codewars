@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Highest Scoring Word</title>
+    <script type="text/javascript">
+      function high(x)
+      {
+        var word = new Array();
+        var temp = 0;
+        var result = 0;
+        for(var i=0;i<=x.split(" ").length-1;i++)
+        {
+          var sum = 0;
+          word[i] = x.split(" ")[i];
+          for(var j=0;j<=word[i].length-1;j++)
+          {
+            sum+=("abcdefghijklmnopqrstuvwxyz").indexOf(word[i].split("")[j])+1;
+
+          }
+          if(sum>temp)
+          {
+            temp = sum;
+            result = i;
+          }
+        }
+        console.log(x.split(" ")[result])
+        return x.split(" ")[result];
+      }
+      console.log(high('what time are we climbing up the volcano'));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

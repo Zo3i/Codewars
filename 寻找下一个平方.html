@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>next perfect square</title>
+    <script type="text/javascript">
+      function findNextSquare(sq)
+      {
+        // Return the next square if sq if a perfect square, -1 otherwise
+        var org = Math.sqrt(sq);//原正方形的边.
+        var next = org + 1;//下一个正方形的边.
+        var next_sq =next * next;//下一个正方形的块大小.
+        var now = sq;//新正方形的边.
+        //console.log(org);
+        //console.log(next);
+        while(Math.sqrt(now)!=next)
+        {
+        //  console.log(now);
+          if(Math.sqrt(now)==Math.sqrt(next_sq));
+          else {
+            now++;
+          }
+          if (Math.sqrt(now)>next) {
+              return -1;
+          }
+        }
+        return now;
+        return -1;
+      }
+      console.log(findNextSquare(15241383936));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳答案.
+      function findNextSquare(sq)
+      {
+        return Math.sqrt(sq)%1? -1 : Math.pow(Math.sqrt(sq)+1,2);
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

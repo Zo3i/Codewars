@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Steps in Primes</title>
+    <script type="text/javascript">
+    function step(g, m, n)
+    {
+      var ss = new Array();//素数数组
+      var d = 0;//素数计数
+      var flag = 0;//0为不是素数
+      for(var i=m;i<=n;i++)
+      {
+        //console.log(i)
+        for(var j=2;j<=i/2;j++)
+        {
+
+          if(i%j==0)
+            flag = 0;
+          else
+            flag = 1  ;
+        }
+        if(flag == 1)
+          {ss[d]=i;d++;}
+      }
+      for(var i=m;i<=n;i++)
+      {
+        console.log((i+2+"").match(/[m-n]/));
+        if(i+2+"".match(/[m-n]/));
+      }
+
+      //console.log(result);
+    }
+    step(2,100,110);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

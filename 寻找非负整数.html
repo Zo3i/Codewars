@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>List Filtering</title>
+    <script type="text/javascript">
+    function filter_list(l)
+    {
+      // Return a new array with the strings filtered out
+      var new_l = new Array();
+      var i = 0;//原数组计数
+      var j = 0;//新数组计数
+      for(var n=0; n<=l.length-1;n++)
+      {
+        console.log(typeof(l[i]));
+         typeof(l[i])==="number" ?(new_l[j] = l[i],i++,j++):i++;
+      }
+       return new_l;
+    }
+    console.log(filter_list([1,2,'a','b']));
+    </script>
+    <script type="text/javascript">
+    //大佬的最佳实践
+    function filter_list(l)
+    {
+    return l.filter(function(v) {return typeof v == 'number'})
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

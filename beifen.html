@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mexican Wave</title>
+    <script type="text/javascript">
+    function wave(word)
+    {
+      var recod = new Array();//记录空格下标
+      var c = 0;
+      var d = 0;
+      //console.log(word[3]);
+      for(var i=0;i<=word.length-1;i++)
+      {
+        if(word[i]==" ")
+        {
+          recod[c] = i;
+          c++;
+        }
+      }
+      var new_word = new Array();
+      console.log(recod);
+      nosapc = word.split(" ").join("");//去空格操作.
+    //  console.log(a);
+      for(var i=0;i<=nosapc.length-1;i++)
+      {
+           new_word[i] = "";
+        for(var j=0;j<=word.length-1;j++)
+        {
+          console.log(j);
+          if(word[j].match(/^\s/))
+            new_word[i]+=" ";
+            if(j==i)
+            {new_word[i]+=nosapc.split("")[i].toUpperCase()}
+            else
+            {
+              new_word[i]+=nosapc[j];
+              ///console.log(word.split("")[i].toUpperCase())
+            }
+              console.log(new_word[i]);
+        }
+
+      }
+
+
+    return new_word
+
+
+
+    }
+    console.log(wave(" gap "));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
