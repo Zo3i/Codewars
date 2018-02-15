@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Multi-tap Keypad Text Entry on an Old Mobile Phone</title>
+    <script type="text/javascript">
+    function presses(phrase) {
+      var string = phrase.toLowerCase();
+      var step = "1231231231231231234123123411444445442";
+      var where = "abcdefghijklmnopqrstuvwxyz 1234567890";
+      var sum = 0;
+      for(x in string)
+      {
+        if(step[where.split("").indexOf(string[x])]!=undefined)
+          sum+=parseInt(step[where.split("").indexOf(string[x])]);
+      }
+      console.log(sum);
+      return sum;
+    }
+    console.log(presses("WHERE DO U WANT 2 MEET L8R"));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function presses(phrase) {
+      var chunks = ['1', 'ABC2', 'DEF3', 'GHI4', 'JKL5', 'MNO6', 'PQRS7', 'TUV8', 'WXYZ9', ' 0'],
+          phrase = phrase.toUpperCase().split(''),
+          total = 0;
+          
+      phrase.forEach(function(l) {
+        var key = chunks.filter(function(c) {
+          return c.indexOf(l) > -1;
+        })[0];
+        total += key.indexOf(l) + 1;
+      });
+
+      return total;
+    }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

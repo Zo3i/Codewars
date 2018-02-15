@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sum The Tree</title>
+    <script type="text/javascript">
+    var simpleNode = {value: 10, left: {value: 1, left: null, right: null}, right: {value: 2, left: null, right: null}};
+    var unbalancedNode = {value: 11, left: {value: 0, left: null, right: null}, right: {value: 0, left: null, right: {value: 1, left: null, right: null}}};
+    function sumTheTreeValues(root){
+      var sum = 0;
+      if (root) {
+        sum += root.value;
+        console.log("1:"+sum);
+       sum=reload(root.left,sum);
+       sum=reload(root.right,sum);
+     }
+      return sum;
+     }
+     function reload(root,sum)
+     {
+       if (root) {
+        sum += root.value;
+        console.log("2:"+sum);
+        sum=reload(root.left,sum);
+        sum=reload(root.right,sum);
+       }
+       return sum;
+     }
+    console.log(sumTheTreeValues(unbalancedNode));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function sumTheTreeValues(root) {
+        return !root ? 0 : root.value + sumTheTreeValues(root.left) + sumTheTreeValues(root.right);
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

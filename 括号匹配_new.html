@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Valid Braces</title>
+    <script type="text/javascript">
+    function validBraces(braces){
+      var where = ["()","[]","{}"];
+      var j = 0;
+      while(1)
+      {
+        for(var i=0;i<=where.length-1;i++)
+        {
+          if(braces.indexOf(where[i])!=-1)
+            braces=braces.replace(where[i],"");
+          else
+          {
+            if(braces.indexOf("[]")==-1&&braces.indexOf("()")==-1&&braces.indexOf("{}")==-1)
+              j = 1;
+          }
+        }
+        if(j==1)
+          break;
+      }
+      console.log(braces)
+
+        return braces.length==0
+    }
+    console.log(validBraces( "{}({})[]" ));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

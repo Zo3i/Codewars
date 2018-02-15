@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Best travel</title>
+    <script type="text/javascript">
+    var ts = [ 100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89];
+    function chooseBestSum(t, k, ts)
+    {
+      console.log(ts)
+      console.log(k)
+      console.log(t)
+      if(ts.length<k)
+      return null;
+      var out = [];
+      var data = ts;
+      var res = [];
+      var sum = new Array();
+      var d = 0;
+      var result = 0;
+      function combi(arr, n, res){
+      	if(n == 0){
+          //console.log(res)
+      		out.push(res);
+      		return ;
+      	}
+      	if(arr.length == n){
+          //console.log(res.concat(arr))
+      		out.push(res.concat(arr));
+      		return ;
+      	}
+      for(var i=0;i<=arr.length-n;i++){
+      		var temp = res.slice(0);
+      		temp.push(arr[i]);
+      		combi(arr.slice(i+1), n-1, temp);
+      	}
+      }
+      combi(data, k, res);
+      //console.log(out);
+      //console.log(out.sort());
+      for(var x=0;x<=out.length-1;x++)
+      {
+        sum[d] = 0;
+      //  console.log("sum="+sum[d])
+        for(a in out[x])
+        {
+        //    console.log(out[x][a])
+          sum[d]+=out[x][a];
+      //    console.log("sum1="+sum[d])
+          if(sum[d]>result)
+          {
+            result=sum[d];
+  //          console.log("r="+result)
+          }
+        }
+        d++;
+
+      }
+      var sum_sort=sum.sort(function(a,b){
+      return a - b;
+    })
+  //  console.log(sum_sort)
+    if(sum_sort[0]>t)
+      return null;
+      for(var s=0;s<=sum_sort.length-1;s++)
+      {
+        if(sum_sort[s]>t)
+        {
+          return sum_sort[s-1];
+        }
+      }
+        return result;
+    }
+    console.log(chooseBestSum(3760, 17, ts));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function chooseBestSum(t, k, ls) {
+        var biggestCount = 0;
+        var recurseTowns = function(townsSoFar, lastIndex) {
+          townsSoFar = townsSoFar || [];
+          //base case
+          if (townsSoFar.length === k) {
+            var sumDistance = townsSoFar.reduce((a,b)=>a+b);
+            if (sumDistance <= t && sumDistance > biggestCount) {
+              biggestCount = sumDistance;
+            }
+            return; //EJECT
+          }
+          //recursive case
+          for (var i = lastIndex + 1 || 0; i < ls.length; i++) {
+            recurseTowns(townsSoFar.concat(ls[i]), i);
+          }
+        }
+        recurseTowns();
+
+        return biggestCount || null;
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

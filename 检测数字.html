@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>check number</title>
+    <script type="text/javascript">
+        function check(num)
+        {
+          var j = 0;//计数
+          for(var i=0;i<=num.length-1;i++)
+          {
+            if("0123456789".indexOf(num[i])!=-1)
+              j++;
+          }
+            if(j==4&&num.length==4||j==6&&num.length==6)
+              return true;
+            else
+              return false;
+        }
+        console.log(check("1234"))
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function validatePIN(pin) {
+        return /^(\d{4}|\d{6})$/.test(pin)
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

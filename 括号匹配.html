@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Valid Braces</title>
+    <script type="text/javascript">
+    <script type="text/javascript">
+    function validBraces(braces){
+      var where = ["()","[]","{}"];
+      var j = 0;
+      while(1)
+      {
+        for(var i=0;i<=where.length-1;i++)
+        {
+          if(braces.indexOf(where[i])!=-1)
+            braces=braces.replace(where[i],"");
+          else
+          {
+            if(braces.indexOf("[]")==-1&&braces.indexOf("()")==-1&&braces.indexOf("{}")==-1)
+              j = 1;
+          }
+        }
+        if(j==1)
+          break;
+      }
+      console.log(braces)
+      if(braces.length==0)
+        return true;
+      else
+        return false;
+    }
+    validBraces( "{}({})[]" );
+    </script>
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function validBraces(braces){
+      var matches = { '(':')', '{':'}', '[':']' };
+      var stack = [];
+      var currentChar;
+
+      for (var i=0; i<braces.length; i++) {
+        currentChar = braces[i];
+
+        if (matches[currentChar]) { // opening braces
+          stack.push(currentChar);
+        } else { // closing braces
+          if (currentChar !== matches[stack.pop()]) {
+            return false;
+          }
+        }
+      }
+
+      return stack.length === 0; // any unclosed braces left?
+    }
+    </script>
+    <script type="text/javascript">
+      //大佬的最短实践
+      function validBraces(braces){
+       while(/\(\)|\[\]|\{\}/g.test(braces)){braces = braces.replace(/\(\)|\[\]|\{\}/g,"")}
+       return !braces.length;
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

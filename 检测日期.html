@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>validDate Regex</title>
+    <script type="text/javascript">
+    //  var validDate = "[01-223]";
+      function test(validDate){
+        var i = 0;//检验是否是4为日期.
+        for(x in validDate)
+        {
+          if(validDate[x].match(/[0-9]/)!=null)
+            i++;
+          console.log(validDate[x].match(/[0-9]/));
+          console.log(i);
+        }
+        //console.log(i);
+        if(i!=4)
+        console.log("invalid");
+        return "invalid";
+
+
+      }
+
+      test("[01-23]")
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
