@@ -5,7 +5,18 @@
     <title>Rot13</title>
     <script type="text/javascript">
     function rot13(message){
-      return message.match(/[a-z]/gi)
+      var temp = message.split("");
+      for(var i=0;i<=message.length-1;i++)
+      {
+        if(message[i].match(/[a-zA-Z]/))
+        {
+          if(message[i].charCodeAt(0)>=97&&message[i].charCodeAt(0)<=109||message[i].charCodeAt(0)>=65&&message[i].charCodeAt(0)<=77)
+            temp.splice(i,1,String.fromCharCode(message[i].charCodeAt(0)+13));
+          else
+            temp.splice(i,1,String.fromCharCode(message[i].charCodeAt(0)-13));
+        }
+      }
+        return temp.join("");
     }
     console.log(rot13("test"));
     </script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic Nico variation</title>
+    <script type="text/javascript">
+    function nico  (key, message)  {
+      while(message.length%key.length!=0)
+        message+=" ";//补充字符串.
+      var temp = new Array();
+      var result = "";//接收结果
+      var ml = message.length;//信息长度
+      var kl = key.length;//密匙长度
+      console.log(ml/kl);
+      for(var i=0;i<=ml/kl-1;i++)//次数为信息长度除以密码长度(之前补充过字符串)
+      {
+        var time = 0;
+        temp[i] = "";
+        for(var j=i*kl;j<(i+1)*kl;j++)//按密码长度排版原信息.
+        {
+          temp[i]+=message[j];
+        }
+        for(var k in key.split("").sort())//循环 密码长度的次数
+        {
+            result+=temp[i][key.indexOf(key.split("").sort()[k])];//每次循环按密码的下标传值给结果.
+        }
+        console.log(temp[i]);
+      }
+      console.log(result);
+      return result;
+    }
+    console.log(nico("crazy", "secretinformation"))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

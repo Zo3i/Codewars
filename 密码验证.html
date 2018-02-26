@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Regex Password Validation</title>
+    <script type="text/javascript">
+    function validate(password) {
+      return (password.length<6||password.match(/[^0-9a-zA-Z]/g)!=null||password.match(/[0-9]/g)==null||password.match(/[a-z]/g)==null||password.match(/[A-Z]/g)==null)
+    }
+    console.log(validate('DHSJdhjsU'))
+    </script>
+    <script type="text/javascript">
+    //论短还是大佬的短.
+    function validate(password) {
+      return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$/.test(password);
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

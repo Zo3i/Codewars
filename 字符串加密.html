@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Encryption #1 - Alternating Split</title>
+    <script type="text/javascript">
+
+    function encrypt(text, n) {
+      console.log(text);
+      console.log(n);
+      if(text == null)
+      return null;
+      if(text.length == 0)
+      return "";
+      var result = "";//结果集合.
+      var j = 0;//计数器
+      var temp = text;
+      function passwd(){
+        //  console.log(temp);
+          result = "";//结果集合.
+        for(var i=0;i<=temp.length-1;i++)
+        {
+            if(i%2!=0)
+            result += temp[i];
+        }
+        for(var i=0;i<=temp.length-1;i++)
+        {
+            if(i%2==0)
+            result += temp[i];
+        }
+        return result;
+      }
+      while(j<=n-1)
+      {
+        //  console.log(passwd());
+          temp = passwd();
+          j++;
+      }
+      return temp;
+    }
+  //  console.log(encrypt("This is a test!", 1));
+
+  function decrypt(encryptedText, n) {
+    console.log(encryptedText);
+    console.log(n);
+    if(encryptedText == null)
+    return null;
+    var result = "";//结果集合.
+    var j = 0;//计数器
+    var s = 0;
+    var temp = encryptedText;
+    function org(){
+      //  console.log(temp);
+        result = "";//结果集合.
+      for(var i=0;i<=temp.length-1;i++)
+      {
+          if(i%2!=0)
+          result += temp[i];
+      }
+      for(var i=0;i<=temp.length-1;i++)
+      {
+          if(i%2==0)
+          result += temp[i];
+      }
+      //console.log(result);
+      return result;
+    }
+    while(org()!=encryptedText)
+    {
+
+        temp = org();
+        j++;
+    }
+    console.log(j);
+    if(n==j+1|| n<0)
+    return encryptedText;
+    if(j<n)
+    {
+      var new_n = n%j-1;
+      console.log(new_n);
+      while(s<=j-new_n+1)
+      {
+          //console.log(j);
+          temp = org();
+          s++;
+      }
+      return temp;
+    }
+    while(s<=j-n+1)
+    {
+        //console.log(j);
+        temp = org();
+        s++;
+    }
+    return temp;
+  }
+  console.log(decrypt("NCIOXFPLVQGCQVPJZVCFSCPOAWAAGPIJZ", 4));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function encrypt(text, n) {
+        for (let i = 0; i < n; i++) {
+          text = text && text.replace(/.(.|$)/g, '$1') + text.replace(/(.)./g, '$1')
+        }
+        return text
+      }
+
+      function decrypt(text, n) {
+        let l = text && text.length / 2 | 0
+        for (let i = 0; i < n; i++) {
+          text = text.slice(l).replace(/./g, (_, i) => _ + (i < l ? text[i] : ''))
+        }
+        return text
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

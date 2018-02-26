@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Primes with Even Digits</title>
+    <script type="text/javascript">
+    function f(n) {
+       n-=1;
+      var result = new Array();//储存素数及偶数的数量
+      var flag = 0;//0为不是素数
+      var max = 0;//最大的偶数数量
+      for(var i=n;i>n/2;i--)
+      {
+        var r = 0;//偶数个数计数器;
+        for(var j=2;j<=Math.sqrt(i);j++)
+        {
+          if(i%j==0)
+          {
+            flag = 0;
+            break;
+          }
+          else
+          {
+            flag = 1;
+          }
+        }
+        if(flag == 1)
+        {
+          var temp = i.toString().split("");
+          for(x in temp)
+          {
+            if(temp[x]%2==0)
+              r++;
+          }
+          if(r>max)
+          {
+            max=r;
+          }
+          result.push(r);
+          result.push(i);
+        }
+      }
+      return result[result.indexOf(max)+1];
+  }
+   console.log(f(10000))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

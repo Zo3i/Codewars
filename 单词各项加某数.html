@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Digital cypher</title>
+    <script type="text/javascript">
+      function encode(str,  n)
+      {
+        var j = 0;
+        var result = new Array();
+        for(var i in str)
+        {
+          result[i] = "abcdefghijklmnopqrstuvwxyz".indexOf(str[i])+1+ +n.toString().split("")[j];
+          j++;
+          if(j%n.toString().split("").length==0)
+            j=0;
+        }
+        console.log(str.split('')[0].charCodeAt(0) - 96)
+        return result;
+      }
+      console.log(encode("scout",1939))
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function encode(str, n) {
+        const key = String(n)
+        return Array.from(str, (c, i) => c.charCodeAt(0) - 96 + Number(key[i % key.length]))
+      }
+    </script>
+    <script type="text/javascript">
+      //又一个大佬
+      function encode(str, num) {
+      var key = num.toString();
+      return str.split('').map(function(char, i) {
+        return char.charCodeAt(0) - 96 + +key[i % key.length];
+      });
+    }
+      console.log(encode("scout",1939))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

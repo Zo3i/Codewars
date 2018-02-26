@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Money, Money, Money</title>
+    <script type="text/javascript">
+      function calculateYears(principal, interest, tax, desired) {
+        if(principal>=desired)
+        return 0;
+        var j = 1;//计数
+        //  console.log(result);
+        cal(principal, interest, tax, desired)
+        function cal(principal, interest, tax, desired)
+          {
+            var result = 0;
+            result = principal+principal*interest*(1-tax);
+            console.log(result);
+            if(result>desired)
+            {
+             console.log(j);
+              return j;
+            }
+            else
+            {
+              j++;
+              principal = result;
+              cal(result, interest, tax, desired)
+          }
+        }
+        console.log(j);
+        return j;
+      }
+      console.log(calculateYears(1000,0.01625,0.18,1200))
+    </script>
+    <script type="text/javascript">
+    function calculateYears(principal, interest, tax, desired) {
+      // 大佬的最佳实践
+      var years = 0;
+      while(principal < desired){
+        principal += (principal * interest) * (1 - tax);
+        years++;
+      }
+      return years;
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Emotional Sort ( ︶︿︶)</title>
+    <script type="text/javascript">
+    function sortEmotions(arr, order){
+      var t = [ ':D', ':)', ':|', ':(', 'T_T' ];
+      var f = [ 'T_T', ':(', ':|', ':)', ':D' ];
+      var temp = new Array();
+      if(order == true)
+        var tfarr = t;
+      else
+        var tfarr = f;
+        console.log(t);
+        console.log(f);
+        for(var i in arr)
+        {
+          temp.push(tfarr.indexOf(arr[i]));
+        }
+        temp = temp.sort();
+        for(var x in temp)
+        {
+          temp[x] = tfarr[temp[x]];
+        }
+        console.log(temp);
+        return temp;
+    }
+    sortEmotions([ ':)', 'T_T', ':)', ':D', ':D' ], true);
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function sortEmotions(arr, order){
+      const m = {
+        ":D": 1,
+        ":)": 2,
+        ":|": 3,
+        ":(": 4,
+        "T_T": 5
+      }
+      return arr.sort((a,b) => order ? m[a] - m[b] : m[b] - m[a])
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

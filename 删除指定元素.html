@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Working with arrays II (and why your code fails in some katas)</title>
+    <script type="text/javascript">
+    function removeNthElement(arr, n) {
+    //  console.log(arr.slice())
+      var new_arr = new Array();
+      var j = 0;
+      for(x in arr)
+      {
+        if(x!=n)
+        {
+          console.log(arr)
+          new_arr[j] = arr[x];
+          j++;
+        }
+      }
+      console.log(new_arr)
+      return new_arr;
+    }
+    console.log(removeNthElement([9, 7, 6, 9], 0))
+    </script>
+    <script type="text/javascript">
+    function removeNthElement(arr, n) {
+      var arrCopy = arr.slice(); // now that's a shallow copy
+      arrCopy.splice(n, 1);
+      return arrCopy;
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

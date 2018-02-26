@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Next bigger number with the same digits</title>
+    <script type="text/javascript">
+    function nextBigger(n){
+      var out = [];
+      var res = [];
+      var data = n.toString().split("");
+      console.log(data);
+      for(x in data)
+      {
+        data[x] = parseInt(data[x]);
+      }
+      console.log(data);
+      function combi(arr, j, res){
+        console.log(arr)
+        if(j == 0){
+        //  console.log(res)
+          out.push(res);
+          return ;
+        }
+        if(arr.length == j){
+          //console.log(res.concat(arr))
+          out.push(res.concat(arr));
+          return ;
+        }
+      for(var i=0;i<=arr.length-j;i++){
+          var temp = res.slice(0);
+          temp.push(arr[i]);
+
+          combi(arr.slice(i+1), j-1, temp);
+        }
+      }
+      combi(data, 3, res);
+      console.log(out)
+      console.log(combi(data, 3, res))
+    }
+    console.log(nextBigger(513));
+    /*
+    123 132
+    213 231
+    312 321
+    -------
+    1234 1243
+    1324 1342
+    1423 1432
+    2134 2143
+    2314 2341
+    2413 2431
+    */
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
