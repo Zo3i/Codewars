@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Credit card issuer checking</title>
+    <script type="text/javascript">
+    function getIssuer(number) {
+      //console.log("1111111".indexOf("2"))
+      var begin = ["34","37","6011","51","52","53","54","55","4"];
+      var loc = -1;
+      number+="";
+      for(var i in begin)
+      {
+        if(number.indexOf(begin[i])==0)
+         loc = i;
+      }
+      console.log(loc);
+        if(loc>=0 && loc<=1 &&number.length==15) return "AMEX";
+        else if(loc==2 &&number.length==16) return "Discover";
+        else if(loc>=3 && loc<=7 &&number.length==16) return "Mastercard"
+        else if(loc==8 &&number.length==16 || loc==8 &&number.length==13) return "VISA";
+        else return "Unknown";
+    }
+    console.log(getIssuer(9111111111111111));
+    </script>
+    <script type="text/javascript">
+      //正则大佬
+      function getIssuer(n) {
+        var s = n.toString();
+        if (/^3[4|7]\d{13}$/.test(s)) return "AMEX";
+        if (/^6011\d{12}$/.test(s)) return "Discover";
+        if (/^5[1-5]\d{14}$/.test(s)) return "Mastercard";
+        if (/^4(\d{12}|\d{15})$/.test(s)) return "VISA";
+        return "Unknown";
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

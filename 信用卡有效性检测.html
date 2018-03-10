@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Validate Credit Card Number</title>
+    <script type="text/javascript">
+    function validate(n){
+      n = (n+"").split("").reverse();//整数转字符串->分割->倒置
+      for(var i=n.length-1;i>=0;i--)
+      {
+          i%2!=0?(n[i]*=2 ,n[i]>=9?n[i]-=9:n[i]=parseInt(n[i])):n[i]=parseInt(n[i]);
+      }
+      return eval(n.join("+"))%10==0;
+    }
+    console.log(validate(4111111111111111));
+    </script>
+    <script type="text/javascript">
+    function validate(n){
+      var sum = 0;
+
+      while (n > 0) {
+        var a = n % 10;
+        n = Math.floor(n / 10);
+
+        var b = (n % 10) * 2;
+        n = Math.floor(n / 10);
+
+        if (b > 9) {
+          b -= 9;
+        }
+
+        sum += a + b;
+      }
+
+      return sum % 10 == 0;
+    }
+    </script>
+    <script type="text/javascript">
+    function validate(n) {
+      n = n.toString().split('').map(Number).reverse();
+      return n.reduce(function (sum, digit, index) {
+        if (index & 1) digit <<= 1;
+        if (digit > 9) digit -= 9;
+        return sum + digit;
+      }, 0) % 10 == 0;
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

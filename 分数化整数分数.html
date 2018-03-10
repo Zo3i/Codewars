@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple fraction to mixed number converter</title>
+    <script type="text/javascript">
+    function mixedFraction(s){
+      var int = parseInt(s.split("/")[0]/s.split("/")[1]);
+      //console.log(parseInt(s.split("/")[0]/s.split("/")[1]));
+      var mom = s.split("/")[1];
+      var float = s.split("/")[0] - int*s.split("/")[1];
+      if(mom == 0)
+        throw "ZeroDivisionError";
+      console.log(s.split("/")[1]);
+      if(s.split("/")[0]+0<0 && s.split("/")[1]+0<0)//判断分子分母是否都为负数.
+      {
+        mom = (mom)*-1;
+        float = (float)*-1;
+      }
+      else if(s.split("/")[0]+0<0 && s.split("/")[1]+0>0 && int!=0)
+      {
+        float = (float)*-1;
+      }
+      else if(s.split("/")[0]+0>0 && s.split("/")[1]+0<0 )
+      {
+        if(int!=0)
+          mom = (mom)*-1;
+        else
+        {
+          mom = (mom)*-1;
+          float = (float)*-1;
+        }
+      }
+      console.log(float);
+      console.log(mom);
+      f=(mom,float)=>mom?f(float%mom,mom):float;//最大公约数
+      var gcd = Math.abs(f(mom,float));
+      console.log( f(mom,float) )
+      if(float==0)
+        return int+"";
+      else if(int == 0)
+        return float/gcd+"/"+mom/gcd;
+      else
+        return int+" "+float/gcd+"/"+mom/gcd;
+    }
+    console.log(mixedFraction('432/0'));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      gcd=(a,b)=> b==0 ? a : gcd(b,a%b);
+      function mixedFraction(s){
+        var [x,y]=s.split("/").map(z=>+z);
+        if (y==0) throw "ZeroDivisionError";
+        if (x%y==0) return ""+x/y;
+        var g=gcd(x,y),add=x/y<0 ? "-" : "";
+        x=Math.abs(x/g),y=Math.abs(y/g);
+        return add+(x<y ? "" : Math.floor(x/y)+" ")+x%y+"/"+y;
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

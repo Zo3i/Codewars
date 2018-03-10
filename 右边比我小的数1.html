@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>How many are smaller than me?</title>
+    <script type="text/javascript">
+    function smaller(nums) {
+      var result = new Array();//接受结果
+      while(nums.length>0)//只要还有数字就作比较
+      {
+        var temp = 0;//记录每次比i大的数字的数量
+        var i = 0;//每次从0开始
+        for(var j=i+1;j<=nums.length-1;j++)
+        {
+          if(nums[j]<nums[i])
+            temp++;
+        }
+        i++;
+        result.push(temp);
+        nums.shift();
+      }
+      //console.log(result);
+      return result;
+    }
+    console.log(smaller([5, 4, 7, 9, 2, 4, 4, 5, 6]));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function smaller(nums) {
+       return nums.map((n, i) => {
+         return nums.slice(i).filter(v => v < n).length
+       });
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

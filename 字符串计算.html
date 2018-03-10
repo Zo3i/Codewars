@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sum Strings as Numbers</title>
+    <script type="text/javascript">
+    function sumStrings(a,b) {
+      var result = [];
+      //去首位0;
+      a = a.split("");
+      b = b.split("");
+      while(a[0]=="0")
+        a.shift();
+      while(b[0]=="0")
+        b.shift();
+      a = a.join("");
+      b = b.join("");
+      if(a.length>b.length)
+      {
+        var min = b.split("");
+        var max = a.split("");
+        while(min.length!=max.length)
+        {
+          min.unshift(0);
+        }
+      }
+      else
+      {
+        var min = a.split("");
+        var max = b.split("");
+        while(min.length!=max.length)
+        {
+          min.unshift(0);
+        }
+      }
+      console.log(min);
+      console.log(max);
+      var flag = 0;//是否进位
+      for(var i=min.length-1 , j=max.length-1;i>=0;i--,j--)
+      {
+        console.log(parseInt(min[i])+parseInt(max[j]))
+        var sum = parseInt(min[i])+parseInt(max[j]);
+        if(flag == 1) sum+=1;//进位
+        if(sum>=10)
+        {
+          result.unshift(sum-10+"")
+          flag=1
+        }
+        else
+        {
+          result.unshift(sum+"")
+          flag=0;
+        }
+      }
+      if(flag==1)
+        result.unshift(1)
+      console.log(result.join(""))
+      return result.join("");
+    }
+    console.log(sumStrings('00103', '08567'));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function sumStrings(a, b) {
+        var res = '', c = 0;
+        a = a.split('');
+        b = b.split('');
+        while (a.length || b.length || c) {
+          c += ~~a.pop() + ~~b.pop();
+          res = c % 10 + res;
+          c = c > 9;
+        }
+        return res.replace(/^0+/, '');
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

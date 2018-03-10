@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>How many are smaller than me II?</title>
+    <script type="text/javascript">
+    function smaller(arr) {
+      var result = new Array();
+      org_arr = arr.slice();
+      var min = arr.sort(function (a,b){return a-b;})[0];
+      if(min<=0 && min>-10)
+      {
+        for(j = 0,len=arr.length; j < len; j++)
+          org_arr[j] += 5;
+      }
+      if(min<=-10 && min>-3000)
+      {
+        for(j = 0,len=arr.length; j < len; j++)
+          org_arr[j] += 3000;
+      }
+      for(var i = 0,len=org_arr.length;i < len;i++)
+      {
+        console.log(org_arr[i])
+        var a = org_arr[i]-1;
+        var new_arr = org_arr.join("").slice(i,arr.length);
+        console.log(new_arr);
+        if(new_arr.match(eval("/["+ 0 +"-" + a + "]/g"))!=null)
+          result.push(new_arr.match(eval("/["+ 0 +"-" + a + "]/g")).length)
+        else
+          result.push(0);
+        }
+        console.log(org_arr)
+      return result;
+    }
+    console.log(smaller([1, 1, -1, 0, 0]))
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

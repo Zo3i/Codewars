@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random case</title>
+    <script type="text/javascript">
+    function randomCase(x) {
+      var a = 11111;
+
+      //console.log(x.split(""));
+      return x.split('').map(function(a){
+        return Math.random()>0.5?  a=a.toLowerCase():a=a.toUpperCase();
+      }).join("")
+    }
+    var str = " abc  ";
+    for(var x in str)
+    {
+
+      console.log(Math.random()>0.5?  str[x]=str[x].toLowerCase():str[x]=str[x].toUpperCase())
+    }
+    //console.log("22".toLowerCase())
+    console.log(randomCase("Lorem ipsum dolor sit amet, consectetur adipiscing elit"));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

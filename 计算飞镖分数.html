@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Throwing Darts</title>
+    <script type="text/javascript">
+    function scoreThrows(radiuses){
+      if(radiuses.length==0)
+        return 0;
+      function mark(num,index,radiuses){
+        if(num>10)return 0;
+        else if(num>=5&&num<=10)return 5;
+        else return 10;
+      }
+    //  console.log(radiuses.map(mark))
+      if(radiuses.map(mark).every(function(num,index,radiuses){return num>=10}))
+        return eval(radiuses.map(mark).join("+"))+100;
+      else
+        return eval(radiuses.map(mark).join("+"));
+    }
+    console.log(scoreThrows([1,5,10]));
+    </script>
+    <script type="text/javascript">
+    //大佬的最佳实践
+    function scoreThrows(radiuses){
+      if (radiuses.length <= 0) { return 0 }
+      var score = 0
+      var award = true
+      for(var i = 0; i < radiuses.length; i++) {
+        if      (radiuses[i] < 5)   { score += 10 }
+        else if (radiuses[i] <= 10) { score += 5; award = false }
+        else                        { award = false }
+      }
+      if (award) { score += 100 }
+      return score;
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -6,11 +6,12 @@
     <script type="text/javascript">
     function toWeirdCase(string){
       string = string.split(" ");
-      var result = new Array();
+    //  var result = new Array();
       console.log(string)
       for(var x in string)
       {
         string[x] = string[x].split("");
+        console.log(string[x]);
         for(var i=0; i<=string[x].length-1;i++){
           if(string[x][i].match(/[A-Za-z]/)&&  i%2==0)
           {

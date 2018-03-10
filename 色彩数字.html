@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Working With Coloured Numbers</title>
+    <script type="text/javascript">
+    function sameColSeq(val, k, col) {
+      var color =  ['red','blue'];
+      var result = new Array();
+      var last = new Array();
+      var m = 0;
+      //console.log(color.indexOf(col)!=-1);
+      if(color.indexOf(col)!=-1)
+      {
+        var i = 1;
+        var temp = 0;
+        function getnum(i)
+        {
+          var num = 1;//计数器
+          result[i] = 0;
+          for(var j=0;j<i;j++)
+          {
+            result[i] += num;
+            num++;
+          }
+          return result[i];
+        }
+        while(temp <= val)
+        {
+          temp = getnum(i);
+          if(i%3!=1)
+        //  console.log(getnum(i));
+          i++;
+        }
+        i--;
+      //  console.log(i);
+      }
+      else
+        return [];
+      for(var j=0;j<k;j++)
+      {
+        if(col == "blue")
+        {
+          if(i%3!=1)
+          {
+            //console.log(getnum(i));
+            last[m]=getnum(i);
+            m++;
+          }
+          else
+            k++;
+        }
+        else
+        {
+          if(i%3==1)
+          {
+          //  console.log(getnum(i));
+            last[m]=getnum(i);
+            m++;
+          }
+          else
+            k++;
+        }
+        i++;
+      }
+      return last;
+    }
+    console.log(sameColSeq(3, 3, 'blue'));
+    </script>
+    <script type="text/javascript">
+    function sameColSeq(val, k, col) {
+      var result = [];
+      switch (col) {
+        case 'blue'   : col = 0; break;
+        case 'red'    : col = 1; break;
+        case 'yellow' : col = 2; break;
+      }
+      function f(n) {
+        return (n / 2) * (n + 1);
+      }
+      var found = 0, i = 0;
+      while (found < k && i < 2 * k * val) {
+        if (f(i) > val && f(i) % 3 == col) {
+          result.push(f(i));
+          ++found;
+        }
+        ++i;
+      }
+
+      return result
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

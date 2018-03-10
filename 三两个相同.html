@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Check three and two</title>
+    <script type="text/javascript">
+    function checkThreeAndTwo(array) {
+      array = array.join("");
+      a = array.split("a").length-1;
+      b = array.split("b").length-1;
+      c = array.split("c").length-1;
+      console.log(array)
+      console.log(a)
+      console.log(b)
+      console.log(c)
+      if(a==5)return false;
+      if(b==5)return false;
+      if(c==5)return false;
+      if(a+b==5 && a>1 &&b>1||a+c==5 && a>1 &&c>1||b+c==5 && b>1 && c>1)
+        return true
+      return false;
+    }
+    console.log(checkThreeAndTwo(["a", "a", "a", "b", "b"]));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      const _ = require('lodash');
+      function checkThreeAndTwo(array) {
+        return _(array).countBy().values().countBy().isEqual({2: 1, 3: 1});
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

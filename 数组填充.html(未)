@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prefill an Array</title>
+    <script type="text/javascript">
+    function prefill(n, v) {
+      console.log(n);
+      console.log(v);
+
+      if(n==0)
+        return [];
+      //console.log(parseInt(n));
+      //判断n是否是正整数.
+      function error(message){
+      this.message = n+" is invalid";;
+      this.name = 'TypeError';
+    }
+    console.log(n>=0);
+    if(n>=0==false)
+      throw new error();
+      //制作数组
+      var result = [];
+      var i = 0;
+      while(i<=n-1)
+      {
+        result.push(v);
+        i++;
+      }
+      console.log(result);
+      return result;
+    }
+    console.log(prefill(1, 1));
+    var errorThrown = false;
+    try {
+      prefill(n, v);
+    }
+    catch(e) {
+     console.log(e);
+     console.log(e.name);
+     console.log(e.message);
+      errorThrown = true;
+    }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
