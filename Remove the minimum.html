@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove the minimum</title>
+    <script>
+      function removeSmallest(numbers) {
+        var new_num  =  Array.from(numbers);
+        console.log(new_num);//打印复制后的数组
+        console.log(parseInt(new_num.sort(function (a,b) {return a-b;  })));//最小值
+        console.log(numbers.indexOf(parseInt(new_num.sort(function (a,b) {return a-b;  }))));//下标
+        numbers.splice(numbers.indexOf(parseInt(new_num.sort(function (a,b) {return a-b;  }))),1);
+        return numbers;
+      }
+    console.log(removeSmallest([303, 272, 377, 160, 311, 32, 180, 265, 235, 92, 154, 217]));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function removeSmallest(numbers) {
+          if(!numbers)return [];
+          var min=Math.min.apply(null,numbers);
+          numbers.splice(numbers.indexOf(min),1);
+          return numbers;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

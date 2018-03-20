@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thinking & Testing : Uniq or not Uniq</title>
+    <script type="text/javascript">
+    function testit(a,b){
+      return Array.from(new Set(a)).concat(Array.from(new Set(b))).sort(function (a,b){return a-b})
+    }
+    console.log(testit([1,1,2],[3,4]), [1,2,3,4]);
+    </script>
+    <script type="text/javascript">
+    //大佬的最佳实践
+    function testit(a,b){
+      return [...new Set(a), ...new Set(b)].sort((a, b) => a - b)
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

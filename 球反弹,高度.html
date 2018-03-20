@@ -6,28 +6,27 @@
     <script type="text/javascript">
     function bouncingBall(h,  bounce,  window)
     {
+      if(h<=window || bounce<=0 || bounce>=1)
+        return -1;
       var times = 1;
-      var i = 1;
-      while (true) {
-        if(h>=window)
-        {
-          h=(Math.pow(bounce,i))*h;
-          //console.log(Math.pow(bounce,i)*30)
+      while (h>window) {
+        console.log(h)
+        console.log(times)
+          h=bounce*h;
+          if(h>window)
           times +=2;
-          i++;
         }
-        else console.log(times);
+        return times;
       }
-
-
-
-
-
+    console.log(bouncingBall(30, 0.9999999999, 1));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function bouncingBall(h,  bounce,  window) {
+      var rebounds = -1;
+      if (bounce > 0 && bounce < 1) while (h > window) rebounds+=2, h *= bounce;
+      return rebounds;
     }
-    bouncingBall(3.0, 0.66, 1.5);
-
-
-console.log()
     </script>
   </head>
   <body>

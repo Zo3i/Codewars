@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Playing with digits</title>
+    <script>
+      function digPow(n, p){
+        var num = ""+n;
+        var sum = 0;//计算总和
+        for(var i=0;i<num.length;i++)
+        {
+            sum+=Math.pow(num[i],p);
+            p++;
+        }
+        console.log((sum/n)%1==0);
+        return (sum/n)%1==0 ? sum/n :-1;
+      }
+      console.log(digPow(92, 1));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function digPow(n, p) {
+          var x = String(n).split("").reduce((s, d, i) => s + Math.pow(d, p + i), 0)
+          return x % n ? -1 : x / n
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

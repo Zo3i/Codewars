@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Moving Zeros To The End</title>
+    <script>
+      var moveZeros = function (arr) {
+        console.log(arr)
+        console.log([]==0)
+        console.log(0+""===[]);
+        var str = new Array();
+        var new_arr = arr.filter(
+          function (a){
+            console.log(a);
+            if((a===0)==true);
+            else if((a+"").length==0){
+              console.log("!!!!!!")
+              str.push([]);
+              return "["+"]";
+            }
+            else{
+              str.push(a);
+              return "'"+a+"'";
+            }
+          });
+        console.log(str)
+        console.log(new_arr.length)
+        while (arr.length!=new_arr.length)
+        {
+          str.push(0);
+          new_arr.push(0);
+        }
+        console.log(new_arr)
+        return str;
+      }
+      console.log(moveZeros([false,2,[],1,0,1,0,3,0,1]));
+    </script>
+    <scrip>
+        //大佬的最佳实践
+        var moveZeros = function (arr) {
+        return arr.filter(function(x) {return x !== 0}).concat(arr.filter(function(x) {return x === 0;}));
+        }
+
+    </scrip>
+</head>
+<body>
+
+</body>
+</html>

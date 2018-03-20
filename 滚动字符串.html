@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scrolling Text</title>
+    <script type="text/javascript">
+    function scrollingText(text){
+      var result = new Array();
+      text = text.toUpperCase();
+      for(var i=0;i<text.length; i++)
+      {
+        var temp = text.slice();
+        result[i] = "";
+        result[i] = text.slice(i,text.length);//复制滚动开始位置到结束的位置.
+        result[i] += temp.slice(0,i)
+      }
+      return result;
+    }
+    console.log(scrollingText("abc"));
+    </script>
+    <script type="text/javascript">
+      //大佬的最佳实践
+      function scrollingText(text){
+        let result = []
+
+        for( var i = 0; i < text.length; i++){
+          result.push((text.slice(i) + text.slice(0,i)).toUpperCase())
+        }
+
+        return result
+    }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
