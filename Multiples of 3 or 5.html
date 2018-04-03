@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiples of 3 or 5</title>
+    <script>
+      function solution(number){
+        var  sum = 0;
+        for(var i=1;i<number;i++)
+        {
+
+          if(i%5==0||i%3==0)
+          {
+            console.log(i);
+            sum+=i;
+          }
+
+        }
+        console.log(sum)
+        return sum;
+      }
+      console.log(solution(10))
+    </script>
+</head>
+<body>
+
+</body>
+</html>

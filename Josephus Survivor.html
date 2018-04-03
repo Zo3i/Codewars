@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Josephus Survivor</title>
+    <script>
+      function josephusSurvivor(n,k){
+        var out = 1;
+        var count = 0;
+        //var boy = "0".repeat(n).split("");
+        var boy = [].slice.call(new Uint8Array(n));
+        //var boy = new Array();
+        //console.log(boy);
+        for(var i=0;i<n;i++)
+        {
+            if(boy[i]==0)
+            {
+              count++;
+              if(count%k==0)
+              {
+                console.log(i+1+"+out");
+                out++;
+                boy[i]=1;
+              }
+            }
+          if(i==n-1)
+            i=-1;
+          if(out == n)
+          {
+            break;
+          }
+        }
+        //console.log(boy)
+        return boy.indexOf(0)+1;
+
+
+      }
+      console.log(josephusSurvivor(11,19));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function josephusSurvivor(n, k){
+          return n < 1 ? 1 : (josephusSurvivor(n - 1, k) + --k) % n + 1;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

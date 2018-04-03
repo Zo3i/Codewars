@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What's a Perfect Power anyway?</title>
+    <script>
+      var isPP = function(n){
+        console.log(n);
+        var result = [];
+        var i=2;
+        var j = 1;
+        while(i<n)
+        {
+          if(n%i==0)
+          {
+
+            //console.log(n+ " = "+Math.sqrt(n)+"^"+"2");
+            while(Math.pow(i,j)<=n)
+            {
+              console.log("i="+i)
+              console.log("j="+j)
+
+              if(Math.pow(i,j)==n)
+              {
+                console.log(j)
+                result.push(i);
+                result.push(j);
+               // console.log(result)
+                return result;
+              }
+              else
+              {
+                j++;
+              }
+            }
+            i++;
+          }
+          else
+          {
+            i++;
+          }
+
+
+          //return null; // fix me
+        }
+        return null;
+      }
+      console.log(isPP(36));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

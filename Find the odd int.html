@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find the odd int</title>
+    <script>
+      function findOdd(A) {
+        //happy coding!
+
+          return A.filter(
+            function (e,i,arr) {
+              var temp = 0;
+              console.log("num="+e);
+              //console.log(arr.join("").match(eval("/"+e+"/g")))
+              for(var j in arr)
+              {
+                if(e==arr[j])
+                 temp++;
+              }
+              console.log(temp)
+              if(temp%2!=0)
+                return e;
+            }
+          )[0]
+      }
+      console.log(findOdd([1,1,2,-2,5,2,4,4,-1,-2,5]))
+    </script>
+    <script>
+        //大佬的最佳实践
+        const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+        ////////////////
+        function findOdd(A) {
+          return A.reduce(function(c,v){return c^v;},0);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

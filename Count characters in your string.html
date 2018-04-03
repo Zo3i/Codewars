@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count characters in your string</title>
+    <script>
+      function count (string) {
+        var result={};
+        var string = string.split("");
+        str = Array.from(new Set(string))
+        console.log(str)
+        console.log(string)
+        for(var i in str)
+        {
+          result[str[i]]=string.join("").split(str[i]).length-1;
+        }
+        return result;
+      }
+      console.log(count(""));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function count (string) {
+          var count = {};
+          string.split('').forEach(function(s) {
+            count[s] ? count[s]++ : count[s] = 1;
+          });
+          return count;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

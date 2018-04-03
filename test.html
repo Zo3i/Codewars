@@ -3,18 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>How many are smaller than me II?</title>
-    <script type="text/javascript">
-    const pify = require('promise.ify').noerr;
-const cowrap = require('co').wrap;
-
-KXX.prototype.play = co.wrap(function*(){
-  for(let i = 0; i < 17; i++){
-    if(!this[`step${ i }Async`]) this[`step${ i }Async`] = pify(this[`step${ i }`]);
-    yield this[`step${ i }Async`]();
-  }
-
-  // blabla
-});
+    <script>
+      var num = 12345;
+      num +="";
+      var str = new Array();
+      for(i in num)
+      {
+        str.push(parseInt(num[i]));
+      }
+      return str.reverse();
+      console.log(str.reverse())
     </script>
   </head>
   <body>

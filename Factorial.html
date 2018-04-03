@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorial</title>
+    <script>
+      function factorial(n)
+      {
+        // Calculate the factorial here
+        var str = new Array();
+          if(n < 0 || n>=12)
+            throw "RangeError";
+        if(n==0)
+          return 1;
+        while(n>0)
+        {
+          str.unshift(n);
+          n--;
+        }
+        console.log(str)
+        return eval(str.join("*"));
+      }
+      console.log(factorial())
+    </script>
+    <script>
+        //大佬的最佳实践
+        function factorial(n) {
+          if (n < 0 || n > 12)
+            throw new RangeError();
+          return n <= 1 ? 1 : n * factorial(n - 1);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

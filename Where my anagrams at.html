@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Where my anagrams at?</title>
+    <script>
+      function anagrams(word, words) {
+        var org_word = word.split("").sort().join("");
+        console.log(word);
+        console.log(words);
+        var result = new Array();
+        for(var i=0;i<words.length;i++)
+        {
+          //console.log(words[i].split("").sort().join(""));
+          if(words[i].split("").sort().join("")==org_word)
+          {
+            result.push(words[i]);
+          }
+        }
+
+        return result;
+      }
+      console.log(anagrams('laser', ['lazing', 'lazy',  'lacer']));
+    </script>
+    <script>
+        //大佬的最佳实践
+        String.prototype.sort = function() {
+          return this.split("").sort().join("");
+        };
+
+        function anagrams(word, words) {
+          return words.filter(function(x) {
+            return x.sort() === word.sort();
+          });
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stop gninnipS My sdroW!</title>
+    <script type="text/javascript">
+    function spinWords(str){
+      //TODO Have fun :)
+      return str.split(" ").map(
+        function (e) {
+          if(e.length>=5)
+          {
+            console.log(e.split("").reverse().join(""));
+            return e.split("").reverse().join("");
+          }
+          else
+            return e;
+        }
+      ).join(" ")
+    }
+    console.log(spinWords("Hey fellow warriors"));
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

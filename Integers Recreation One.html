@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integers: Recreation One</title>
+    <script>
+      function listSquared(m, n) {
+        // your code
+        var temp = new Array();
+        var s = 0;
+        for(var i=m;i<=n;i++)
+        {
+          var sum = 0;
+            //console.log(i);
+          for(var j=i;j>0;j--)
+          {
+            if(i%j==0)
+            {
+              //console.log(j);
+              sum+=Math.pow(j,2);
+            }
+          }
+          console.log("*****************")
+          console.log(Math.sqrt(sum)%1==0);
+          if(Math.sqrt(sum)%1==0)
+          {
+            temp[s] = [];
+            temp[s].push(i);
+            temp[s].push(sum);
+            s++;
+          }
+        }
+        console.log(temp)
+        return temp;
+      }
+      console.log(listSquared(1, 250));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function listSquared(m, n) {
+          var arr = [];
+          for (var i = m; i <= n; i++){
+            var temp = 0;
+            for (var j = 1; j <= i; j++) {
+              if ( i % j == 0) temp += j*j;
+            };
+            if ( Math.sqrt(temp) % 1 == 0) arr.push([i, temp]);
+          };
+          return arr;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

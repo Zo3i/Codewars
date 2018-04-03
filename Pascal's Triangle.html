@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pascal's Triangle</title>
+    <script>
+      function pascalsTriangle(n) {
+        var nums = 0;//计算元素总个数
+        var result = new Array();
+        for(var m=1;m<=n;m++)
+        {
+          nums+=m;
+        }
+        console.log(n);
+        var num = new Array();
+        for(var i=0;i<n;i++)
+        {
+           num[i] = new Array();
+          for(var j=0;j<=i;j++)
+          {
+            if(j==0||j==i)
+              num[i][j]=1;
+            else {
+              num[i][j]=num[i-1][j-1]+num[i-1][j];
+            }
+          }
+          result=result.concat(num[i]);
+        }
+
+        console.log(num);
+        console.log(result);
+        return result;
+      }
+      console.log(pascalsTriangle(4));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function pascalsTriangle(n) {
+          var pascal = [];
+          var idx = 0;
+
+          for ( var i = 0; i < n; i++ ) {
+            idx = pascal.length - i;
+            for ( var j = 0; j < i+1; j++ ) {
+              if ( j === 0 || j === i ) {
+                pascal.push(1);
+              } else {
+                pascal.push( pascal[ idx+j ] + pascal[ idx+j-1 ] );
+              }
+            }
+          }
+
+          return pascal;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sum of Digits / Digital Root</title>
+    <script>
+      function digital_root(n) {
+        // ...
+         var num = n+"";
+         function sum (num) {
+          //return eval(num.split("").join("+"));
+          num = eval(num.split("").join("+")).toString();
+          return num.length>1?sum(num):num;
+        }
+        console.log(sum(num))
+        return sum(num);
+      }
+      console.log( digital_root(493193));
+    </script>
+    <script>
+        //大佬的最佳实践
+        function digital_root(n) {
+          return (n - 1) % 9 + 1;
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
